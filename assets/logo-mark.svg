@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="OmniRate mark">
+  <title>OmniRate</title>
+  <!-- Four arcs, one per medium, converging on a single point: four ways to
+       rate, one score. Colours are fixed brand values and never re-theme. -->
+  <g fill="none" stroke-width="11" stroke-linecap="round">
+    <path d="M51.78 16.05A34 34 0 0 1 83.95 48.22" stroke="#f0b429"/>
+    <path d="M83.95 51.78A34 34 0 0 1 51.78 83.95" stroke="#d97842"/>
+    <path d="M48.22 83.95A34 34 0 0 1 16.05 51.78" stroke="#e91e63"/>
+    <path d="M16.05 48.22A34 34 0 0 1 48.22 16.05" stroke="#00d4aa"/>
+  </g>
+  <circle cx="50" cy="50" r="9" fill="#e8e8ec"/>
+</svg>

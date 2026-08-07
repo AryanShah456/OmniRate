@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OmniRate — Rate Everything</title>
+  <meta name="description" content="Rate movies, books, music and games across six categories each. Community scores blended with ratings from TMDB, Open Library, MusicBrainz and RAWG." />
+
+  <!-- Favicon: the four-arc mark -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230b0b0d'/><g fill='none' stroke-width='11' stroke-linecap='round'><path d='M51.78 16.05A34 34 0 0 1 83.95 48.22' stroke='%23f0b429'/><path d='M83.95 51.78A34 34 0 0 1 51.78 83.95' stroke='%23d97842'/><path d='M48.22 83.95A34 34 0 0 1 16.05 51.78' stroke='%23e91e63'/><path d='M16.05 48.22A34 34 0 0 1 48.22 16.05' stroke='%2300d4aa'/></g><circle cx='50' cy='50' r='9' fill='%23e8e8ec'/></svg>" />
+
+  <!-- Social preview -->
+  <meta property="og:title" content="OmniRate — Rate Everything" />
+  <meta property="og:description" content="One place to rate movies, books, music and games — six categories each, not one blunt star count." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body data-media="movies">
+
+  <!-- ============ HEADER ============ -->
+  <header class="app-header">
+    <div class="header-inner">
+      <a class="logo" id="logo" href="#/" aria-label="OmniRate home">
+        <svg class="logo-mark" viewBox="0 0 100 100" width="34" height="34" aria-hidden="true">
+          <g fill="none" stroke-width="11" stroke-linecap="round">
+            <path d="M51.78 16.05A34 34 0 0 1 83.95 48.22" stroke="var(--brand-movies)" />
+            <path d="M83.95 51.78A34 34 0 0 1 51.78 83.95" stroke="var(--brand-books)" />
+            <path d="M48.22 83.95A34 34 0 0 1 16.05 51.78" stroke="var(--brand-music)" />
+            <path d="M16.05 48.22A34 34 0 0 1 48.22 16.05" stroke="var(--brand-games)" />
+          </g>
+          <circle cx="50" cy="50" r="9" fill="currentColor" />
+        </svg>
+        <span class="logo-text">Omni<span class="logo-text-accent">Rate</span></span>
+      </a>
+
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" data-media="movies" role="tab">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="7" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="17" y2="20"/></svg>
+          <span>Movies</span>
+        </button>
+        <button class="tab-btn" data-media="books" role="tab">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>Books</span>
+        </button>
+        <button class="tab-btn" data-media="music" role="tab">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          <span>Music</span>
+        </button>
+        <button class="tab-btn" data-media="games" role="tab">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="15.01" y2="12"/><line x1="18" y1="10" x2="18.01" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258A4 4 0 0 0 17.32 5z"/></svg>
+          <span>Games</span>
+        </button>
+      </nav>
+
+      <div class="auth-area">
+        <button id="nav-activity" class="icon-btn" title="Recent activity" aria-label="Recent activity">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </button>
+        <button id="nav-saved" class="icon-btn hidden" title="Saved" aria-label="Saved items">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          <span id="saved-count" class="icon-btn-count hidden">0</span>
+        </button>
+        <button id="nav-users" class="icon-btn hidden" title="Users directory" aria-label="Users directory">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </button>
+
+        <button id="auth-btn" class="btn btn-primary btn-sm">Sign In</button>
+        <div id="user-menu" class="user-menu hidden">
+          <button id="user-chip" class="user-chip" title="Your profile">
+            <span class="user-avatar" id="user-avatar"></span>
+            <span class="user-display" id="user-name"></span>
+          </button>
+          <button id="sign-out-btn" class="btn btn-ghost btn-sm">Sign Out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main class="app-main">
+
+    <!-- ---------- BROWSE VIEW ---------- -->
+    <section id="browse-view">
+      <div class="controls">
+        <div class="search-row">
+          <div class="search-bar">
+            <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="search-input" placeholder="Search movies..." />
+            <button id="clear-search" class="clear-btn hidden" aria-label="Clear search">&times;</button>
+          </div>
+          <button id="search-btn" class="btn btn-primary">Search</button>
+        </div>
+        <div class="filter-row" id="filter-bar"></div>
+      </div>
+
+      <div class="section-header">
+        <h2 id="section-title" class="section-title">Newest Movies</h2>
+        <span id="result-count" class="result-count"></span>
+      </div>
+
+      <div id="status-msg" class="status-msg"></div>
+
+      <div id="results-grid" class="results-grid"></div>
+
+      <!-- Infinite scroll: this sentinel replaces the old Load More button.
+           An IntersectionObserver watches it and fetches the next page. -->
+      <div id="scroll-sentinel" class="scroll-sentinel" aria-hidden="true"></div>
+      <div id="scroll-status" class="scroll-status"></div>
+    </section>
+
+    <!-- ---------- PANEL VIEWS (saved / activity / users / profile) ---------- -->
+    <section id="panel-view" class="panel-view hidden"></section>
+
+  </main>
+
+  <!-- ============ AUTH MODAL ============ -->
+  <div id="auth-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <div class="modal-backdrop" data-close="auth-modal"></div>
+    <div class="modal-card">
+      <button class="modal-close" data-close="auth-modal" aria-label="Close">&times;</button>
+      <h2 id="auth-title" class="modal-heading">Welcome Back</h2>
+      <p class="modal-subtitle">Sign in to rate and review</p>
+
+      <!-- Google sign-in -->
+      <button type="button" id="google-signin-btn" class="btn btn-google btn-block">
+        <svg viewBox="0 0 18 18" width="18" height="18" aria-hidden="true">
+          <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.91c1.7-1.57 2.69-3.88 2.69-6.62z"/>
+          <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.91-2.26c-.81.54-1.84.86-3.05.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.34A8.99 8.99 0 0 0 9 18z"/>
+          <path fill="#FBBC05" d="M3.97 10.72a5.4 5.4 0 0 1 0-3.44V4.94H.96a9 9 0 0 0 0 8.12l3.01-2.34z"/>
+          <path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58C13.46.89 11.43 0 9 0A8.99 8.99 0 0 0 .96 4.94l3.01 2.34C4.68 5.16 6.66 3.58 9 3.58z"/>
+        </svg>
+        <span>Continue with Google</span>
+      </button>
+      <p id="google-error" class="error-msg"></p>
+
+      <div class="auth-divider"><span>or</span></div>
+
+      <form id="auth-form" class="auth-form">
+        <div id="auth-name-field" class="form-field hidden">
+          <label for="auth-name">Display Name</label>
+          <input type="text" id="auth-name" placeholder="Your name" autocomplete="name" />
+        </div>
+        <div class="form-field">
+          <label for="auth-email">Email</label>
+          <input type="email" id="auth-email" placeholder="you@example.com" required autocomplete="email" />
+        </div>
+        <div class="form-field">
+          <label for="auth-password">Password</label>
+          <input type="password" id="auth-password" placeholder="••••••••" required autocomplete="current-password" />
+        </div>
+        <p id="auth-error" class="error-msg"></p>
+        <button type="submit" id="auth-submit" class="btn btn-primary btn-block">Sign In</button>
+      </form>
+      <p class="auth-toggle-text">
+        <span id="auth-toggle-label">Don't have an account?</span>
+        <a href="#" id="auth-toggle">Sign Up</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ DETAIL MODAL ============ -->
+  <div id="detail-modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close="detail-modal"></div>
+    <div class="modal-card modal-card-large">
+      <button class="modal-close" data-close="detail-modal" aria-label="Close">&times;</button>
+      <div id="detail-content" class="detail-content">
+        <div class="detail-loading">
+          <div class="spinner"></div>
+          <p>Loading...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TOAST ============ -->
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="app-footer">
+    <p>OmniRate — a passion project. Catalogue from TMDB, Open Library, iTunes &amp; FreeToGame. Baseline ratings from TMDB, Open Library, MusicBrainz &amp; RAWG.</p>
+  </footer>
+
+  <!-- Firebase SDK (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+
+  <!-- App Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/baseline.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ratings.js"></script>
+  <script src="js/saved.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

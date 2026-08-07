@@ -1,0 +1,66 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    /* ---------------------------------------------------------------
+     * reviews — the public record. Anyone can read; you can only write
+     * a document that carries your own uid.
+     * --------------------------------------------------------------- */
+    match /reviews/{reviewId} {
+      allow read: if true;
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid;
+      allow update: if signedIn()
+        && resource.data.uid == request.auth.uid
+        && request.resource.data.uid == request.auth.uid;
+      allow delete: if signedIn()
+        && resource.data.uid == request.auth.uid;
+    }
+
+    /* ---------------------------------------------------------------
+     * users — mirror of each account's auth profile, so the app can
+     * list members (Firebase Auth's user list isn't queryable client-side).
+     *
+     * Contains email addresses, so reads are restricted to signed-in
+     * accounts rather than being fully public. Note the honest limit:
+     * this stops anonymous scraping, not a determined signed-in user.
+     * The UI additionally hides emails from anyone outside CONFIG.admins,
+     * but that gate is convenience only — THIS rule is the real boundary.
+     * If emails must be truly private, they have to move behind a Cloud
+     * Function; a static site can't hide them.
+     *
+     * Writes are self-only, and uid is pinned to the caller so nobody can
+     * create or edit an entry for someone else.
+     * --------------------------------------------------------------- */
+    match /users/{userId} {
+      allow read: if signedIn();
+      allow create, update: if signedIn()
+        && request.auth.uid == userId
+        && request.resource.data.uid == request.auth.uid;
+      allow delete: if signedIn() && request.auth.uid == userId;
+    }
+
+    /* ---------------------------------------------------------------
+     * saved — watchlists / reading lists / listen-later / play-later.
+     * Entirely private: only the owner can read or write their own rows.
+     * --------------------------------------------------------------- */
+    match /saved/{savedId} {
+      allow read: if signedIn() && resource.data.uid == request.auth.uid;
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid;
+      allow update: if signedIn()
+        && resource.data.uid == request.auth.uid
+        && request.resource.data.uid == request.auth.uid;
+      allow delete: if signedIn() && resource.data.uid == request.auth.uid;
+    }
+
+    // Deny everything else by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

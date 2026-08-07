@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="OmniRate — Rate Everything">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0b0d"/>
+      <stop offset="100%" stop-color="#16161a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Mark, scaled up -->
+  <g transform="translate(96 128) scale(1.7)">
+    <g fill="none" stroke-width="11" stroke-linecap="round">
+      <path d="M51.78 16.05A34 34 0 0 1 83.95 48.22" stroke="#f0b429"/>
+      <path d="M83.95 51.78A34 34 0 0 1 51.78 83.95" stroke="#d97842"/>
+      <path d="M48.22 83.95A34 34 0 0 1 16.05 51.78" stroke="#e91e63"/>
+      <path d="M16.05 48.22A34 34 0 0 1 48.22 16.05" stroke="#00d4aa"/>
+    </g>
+    <circle cx="50" cy="50" r="9" fill="#e8e8ec"/>
+  </g>
+
+  <text x="96" y="392" font-family="'Cabinet Grotesk',system-ui,sans-serif" font-size="96" font-weight="800" letter-spacing="-3">
+    <tspan fill="#e8e8ec">Omni</tspan><tspan fill="#f0b429">Rate</tspan>
+  </text>
+  <text x="96" y="452" font-family="'Satoshi',system-ui,sans-serif" font-size="34" fill="#7a7a85">Rate everything. Six categories, not one blunt star.</text>
+
+  <g font-family="'Satoshi',system-ui,sans-serif" font-size="26" font-weight="700">
+    <g transform="translate(96 520)">
+      <circle cx="10" cy="-8" r="8" fill="#f0b429"/><text x="30" y="0" fill="#e8e8ec">Movies</text>
+      <circle cx="168" cy="-8" r="8" fill="#d97842"/><text x="188" y="0" fill="#e8e8ec">Books</text>
+      <circle cx="312" cy="-8" r="8" fill="#e91e63"/><text x="332" y="0" fill="#e8e8ec">Music</text>
+      <circle cx="456" cy="-8" r="8" fill="#00d4aa"/><text x="476" y="0" fill="#e8e8ec">Games</text>
+    </g>
+  </g>
+</svg>

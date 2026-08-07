@@ -1,0 +1,91 @@
+/* ===== PER-TAB THEMES ===== */
+/* body[data-media] is set by JS when switching tabs */
+/* All component CSS uses var(--theme-*) so colors cascade */
+
+/* Derived aliases. Declared on `body` (not on the body[data-media] blocks)
+ * so a single declaration covers every theme — the media blocks never
+ * override these, so there's no specificity conflict. */
+body {
+  --theme-card: var(--theme-surface-2);
+  --theme-text-secondary: var(--theme-text-muted);
+}
+
+/* --- MOVIES: Cinematic Gold --- */
+body[data-media="movies"] {
+  --theme-bg: #0b0b0d;
+  --theme-surface: #16161a;
+  --theme-surface-2: #1c1c22;
+  --theme-surface-hover: #222228;
+  --theme-accent: #f0b429;
+  --theme-accent-hover: #ffc94d;
+  --theme-accent-soft: rgba(240, 180, 41, 0.15);
+  --theme-accent-text: #0b0b0d;
+  --theme-text: #e8e8ec;
+  --theme-text-muted: #7a7a85;
+  --theme-text-faint: #4a4a52;
+  --theme-border: #26262e;
+  --theme-glow: rgba(240, 180, 41, 0.2);
+  --theme-rating-positive: #4caf50;
+  --theme-rating-neutral: #f0b429;
+  --theme-rating-negative: #ef5350;
+}
+
+/* --- BOOKS: Warm Library --- */
+body[data-media="books"] {
+  --theme-bg: #14100c;
+  --theme-surface: #1f1812;
+  --theme-surface-2: #2a2018;
+  --theme-surface-hover: #332821;
+  --theme-accent: #d97842;
+  --theme-accent-hover: #e8915a;
+  --theme-accent-soft: rgba(217, 120, 66, 0.15);
+  --theme-accent-text: #14100c;
+  --theme-text: #ede0d4;
+  --theme-text-muted: #9a8a7a;
+  --theme-text-faint: #5a4a3e;
+  --theme-border: #2e251c;
+  --theme-glow: rgba(217, 120, 66, 0.2);
+  --theme-rating-positive: #6abf69;
+  --theme-rating-neutral: #d97842;
+  --theme-rating-negative: #d4574b;
+}
+
+/* --- MUSIC: Neon Vinyl --- */
+body[data-media="music"] {
+  --theme-bg: #0d0a14;
+  --theme-surface: #17121f;
+  --theme-surface-2: #1f1829;
+  --theme-surface-hover: #281f35;
+  --theme-accent: #e91e63;
+  --theme-accent-hover: #f43f7e;
+  --theme-accent-soft: rgba(233, 30, 99, 0.15);
+  --theme-accent-text: #fff;
+  --theme-text: #ece4f0;
+  --theme-text-muted: #8a7a99;
+  --theme-text-faint: #4a3e55;
+  --theme-border: #28203a;
+  --theme-glow: rgba(233, 30, 99, 0.2);
+  --theme-rating-positive: #4caf50;
+  --theme-rating-neutral: #e91e63;
+  --theme-rating-negative: #ef5350;
+}
+
+/* --- GAMES: Arcade Neon --- */
+body[data-media="games"] {
+  --theme-bg: #0a0e12;
+  --theme-surface: #121820;
+  --theme-surface-2: #1a222c;
+  --theme-surface-hover: #232e3a;
+  --theme-accent: #00d4aa;
+  --theme-accent-hover: #1ae6bc;
+  --theme-accent-soft: rgba(0, 212, 170, 0.15);
+  --theme-accent-text: #0a0e12;
+  --theme-text: #e0ecf0;
+  --theme-text-muted: #6a8a9a;
+  --theme-text-faint: #3a4a55;
+  --theme-border: #1e2832;
+  --theme-glow: rgba(0, 212, 170, 0.2);
+  --theme-rating-positive: #00d4aa;
+  --theme-rating-neutral: #f0b429;
+  --theme-rating-negative: #ef5350;
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 100" width="420" height="100" role="img" aria-label="OmniRate">
+  <title>OmniRate</title>
+  <g fill="none" stroke-width="11" stroke-linecap="round">
+    <path d="M51.78 16.05A34 34 0 0 1 83.95 48.22" stroke="#f0b429"/>
+    <path d="M83.95 51.78A34 34 0 0 1 51.78 83.95" stroke="#d97842"/>
+    <path d="M48.22 83.95A34 34 0 0 1 16.05 51.78" stroke="#e91e63"/>
+    <path d="M16.05 48.22A34 34 0 0 1 48.22 16.05" stroke="#00d4aa"/>
+  </g>
+  <circle cx="50" cy="50" r="9" fill="#e8e8ec"/>
+  <text x="112" y="66" font-family="'Cabinet Grotesk','Satoshi',system-ui,sans-serif"
+        font-size="46" font-weight="800" letter-spacing="-1.2">
+    <tspan fill="#e8e8ec">Omni</tspan><tspan fill="#f0b429">Rate</tspan>
+  </text>
+</svg>
